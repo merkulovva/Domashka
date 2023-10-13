@@ -34,16 +34,16 @@ int main()
         if (((Xi*Xi)+(Yi*Yi)) < 1)
             sector = 1;
         
-        if ((((Xi*Xi)+(Yi*Yi)) == 1) || ((((Xi*Xi)+(Yi*Yi)) > 1) && (((Xi*Xi)+(Yi*Yi)) < sqrt(2))))
+        if ((((Xi*Xi)+(Yi*Yi)) == 1) || ((((Xi*Xi)+(Yi*Yi)) > 1) && (((Xi*Xi)+(Yi*Yi)) < 2)))
             sector = 2;
             
-        if ((((Xi*Xi)+(Yi*Yi)) == sqrt(2)) || ((((Xi*Xi)+(Yi*Yi)) > sqrt(2)) && (((Xi*Xi)+(Yi*Yi)) < sqrt(3))))
+        if ((((Xi*Xi)+(Yi*Yi)) == 2) || ((((Xi*Xi)+(Yi*Yi)) > 2) && (((Xi*Xi)+(Yi*Yi)) < 3)))
             sector = 3;
             
-        if ((((Xi*Xi)+(Yi*Yi)) == sqrt(3)) || ((((Xi*Xi)+(Yi*Yi)) > sqrt(3)) && (((Xi*Xi)+(Yi*Yi)) < sqrt(4))))
+        if ((((Xi*Xi)+(Yi*Yi)) == 3) || ((((Xi*Xi)+(Yi*Yi)) > 3) && (((Xi*Xi)+(Yi*Yi)) < 4)))
             sector = 4;
             
-        if ((((Xi*Xi)+(Yi*Yi)) == sqrt(4)) || ((((Xi*Xi)+(Yi*Yi)) > sqrt(4)) && (((Xi*Xi)+(Yi*Yi)) < sqrt(5))))
+        if ((((Xi*Xi)+(Yi*Yi)) == 4) || ((((Xi*Xi)+(Yi*Yi)) > 4) && (((Xi*Xi)+(Yi*Yi)) < 5)))
             sector = 5;
             
         switch(sector)
