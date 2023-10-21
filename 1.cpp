@@ -4,46 +4,53 @@
 #include <ctime>
 using namespace std;
 
-int GetRandomNumber(int min, int max)
+float GetRandomNumber(float min, float max)
 {
-    return ((int)(rand()) / RAND_MAX) * (max - min) + min;
+    return ((float)(rand()) / RAND_MAX) * (max - min) + min;
 }
 
 int main()
 {
+    int seed = time(NULL);
+    srand(seed);
+
     int score = 0;
-    int Xi, Yi, sector;
+    float Xi, Yi;
+    int sector;
     int a = 1;
-    
-    int i = 0; 
+
+    int i = 0;
     while (i < 5)
     {
         i = i + (a&a);
-        
+
         cout << i << " shot" << ")" << endl;
         cout << "enter the coordinates of the shot Xi=" << endl;
         cin >> Xi;
         cout << "enter the coordinates of the shot Yi=" << endl;
         cin >> Yi;
-        
+
         Xi = Xi + GetRandomNumber(-5, 5);
         Yi = Yi + GetRandomNumber(-5, 5);
-        
-        if (((Xi*Xi)+(Yi*Yi)) < 1)
+
+
+        float rad = sqrt(Xi*Xi+Yi*Yi);
+
+        if (rad < 1)
             sector = 1;
-        
-        if ((((Xi*Xi)+(Yi*Yi)) == 1) || ((((Xi*Xi)+(Yi*Yi)) > 1) && (((Xi*Xi)+(Yi*Yi)) < 2)))
+
+        if ((rad == 1) || ((rad > 1) && (rad < 2)))
             sector = 2;
-            
-        if ((((Xi*Xi)+(Yi*Yi)) == 2) || ((((Xi*Xi)+(Yi*Yi)) > 2) && (((Xi*Xi)+(Yi*Yi)) < 3)))
+
+        if ((rad == 2) || ((rad > 2) && (rad < 3)))
             sector = 3;
-            
-        if ((((Xi*Xi)+(Yi*Yi)) == 3) || ((((Xi*Xi)+(Yi*Yi)) > 3) && (((Xi*Xi)+(Yi*Yi)) < 4)))
+
+        if ((rad == 3) || ((rad > 3) && (rad < 4)))
             sector = 4;
-            
-        if ((((Xi*Xi)+(Yi*Yi)) == 4) || ((((Xi*Xi)+(Yi*Yi)) > 4) && (((Xi*Xi)+(Yi*Yi)) < 5)))
+
+        if ((rad == 4) || ((rad > 4) && (rad < 5)))
             sector = 5;
-            
+
         switch(sector)
         {
             case 1:
@@ -61,16 +68,17 @@ int main()
             case 5:
                 score = score + 1;
                 break;
-            
+
             default:
                 score = score + 0;
                 break;
         }
     }
-    
+
     if (score < 10)
         cout << "you lose"<< endl;
     else cout << "well done ^_^";
-    
+
+    system("pause");
     return 0;
 }
